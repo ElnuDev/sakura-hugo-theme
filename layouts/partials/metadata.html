@@ -1,0 +1,7 @@
+Posted by {{ .Site.Params.author }} on {{ partial "time.html" . }}
+<p>
+{{ range $i, $e := .Params.tags -}}
+    {{- if $i -}}, {{ end -}}
+    <a href="{{ "/tags/" | relLangURL }}{{ . | urlize }}" rel="tag">#{{ $e }}</a>
+{{- end -}}
+</p>

@@ -1,0 +1,12 @@
+name = "sakura-hugo-theme"
+license = "GPLv3"
+licenselink = "https://github.com/ElnuDev/sakura-hugo-theme/blob/main/LICENSE"
+description = "A minimal blog theme for Hugo using Sakura."
+homepage = "https://github.com/ElnuDev/sakura-hugo-theme"
+tags = ["blog", "minimal"]
+features = []
+min_version = "0.41.0"
+
+[author]
+  name = "ElnuDev"
+  homepage = "https://elnu.com/"

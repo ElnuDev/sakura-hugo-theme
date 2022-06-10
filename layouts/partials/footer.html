@@ -1,0 +1,13 @@
+
+<footer>
+	{{ range .Site.Sections }}
+		<a href="{{.RelPermalink }}">{{ .Title }}</a> 
+	{{ end }}
+	{{ range $taxonomyname, $taxonomy := .Site.Taxonomies }}
+		{{ if $taxonomy }}<a href="{{ "/" | relLangURL }}{{ $taxonomyname | urlize }}/">{{ $taxonomyname | title }}</a> {{ end }}
+	{{ end }}
+	<div id="footer-content">
+		Copyright &copy; {{ dateFormat "2006" now }} <b>{{ .Site.Title }}</b>. All rights reserved.<br>
+		Site last regenerated with <a href="https://gohugo.io/">Hugo</a> at {{ partial "time.html" (dict "Date" now) }}</small>
+	</div>
+</footer>

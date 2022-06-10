@@ -1,0 +1,6 @@
+{{ define "main" }}
+	<h1>{{ .Title }}</h1>
+	{{ range .Data.Terms.ByCount }}
+	<a href="{{ .Page.RelPermalink }}">{{ if eq .Page.Data.Singular "tag" }}#{{ end }}{{ .Page.Title }}</a> {{ $len := len .Pages }}{{ $len }} post{{ if ne $len 1 }}s{{ end }}<br>
+	{{ end }}
+{{ end }}

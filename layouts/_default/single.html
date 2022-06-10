@@ -1,0 +1,17 @@
+{{ define "main" }}
+	{{ with .Site.RegularPages.Prev . }}
+		<a href="{{ .RelPermalink }}" rel="prev">&laquo; Previous post: <i>{{ .Title }}</i></a>
+	{{ end }}
+	{{ with .Site.RegularPages.Next . }}
+		<a href="{{ .RelPermalink }}" rel="next" style="float: right">Next post: <i>{{ .Title }}</i> &raquo</a>
+	{{ end }}
+	<br><br>
+	<article>
+		<header>
+			<h1>{{ .Title }}</h1>
+			{{ partial "metadata.html" . }}
+		</header>
+		<br>
+		{{ .Content }}
+	</article>
+{{ end }}

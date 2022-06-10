@@ -1,0 +1,19 @@
+{{ define "main" }}
+	{{ partial "pagination.html" . }}
+	{{ if eq .Paginator.PageNumber 1 }}
+		<h1>{{ .Title }}</h1>
+		{{ .Content }}
+		<hr>
+	{{ end }}
+	{{ range .Paginator.Pages }}
+		<article>
+			<header>
+				<h2><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
+				{{ partial "metadata.html" . }}
+			</header>
+			{{ .Content | truncate 500 }} <a href="{{ .RelPermalink }}">Read more &raquo;</a>
+		</article>
+		<br>
+	{{ end }}
+	{{ partial "pagination.html" . }}
+{{ end }}
