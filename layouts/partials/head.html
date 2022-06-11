@@ -3,12 +3,17 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	{{ $title := cond .IsHome .Site.Title (printf "%s" .Title | printf "%s%s" (cond (and (eq .Kind "term") (eq .Data.Singular "tag")) "#" "") | printf "%s") }}
 	<meta property="og:title" content="{{ $title }}">
+	<meta name="twitter:title" content="{{ $title }}">
 	{{ with .Resources.GetMatch "{cover.*,*.jpg,*.png,*.jpeg}" }}
-		<meta property="og:image" content="{{ .Permalink | absURL }}">
+		{{ with .Permalink | absURL }}
+			<meta property="og:image" content="{{ . }}">
+			<meta name="twitter:image" content="{{ . }}">
+		{{ end }}
 	{{ end }}
 	{{ with .Params.description }}
 		<meta property="og:description" content="{{ . }}">
 		<meta name="description" content="{{ . }}">
+		<meta name="twitter:description" content="{{ . }}">
 	{{ end }}
 	<meta property="og:type" content="{{ cond (eq .Kind "page") "article" "website" }}">
 	{{ if eq .Kind "page" }}
@@ -40,6 +45,9 @@
 	{{ end }}
 	{{ with .Site.Params.AuthorTwitter }}
 		<meta name="twitter:creator" content="@{{ . }}">
+	{{ end }}
+	{{ with .Site.Params.ThemeColor }}
+		<meta name="theme-color" content="{{ . }}">
 	{{ end }}
 	<link rel="stylesheet" href="/css/normalize.css">
 	<link rel="stylesheet" href="/css/sakura{{ if isset .Site.Params "theme" }}-{{ .Site.Params.Theme }}{{ end }}.css">
