@@ -1,7 +1,9 @@
+{{ with .Resources.GetMatch "{cover.*,*.jpg,*.png,*.jpeg}" }}
+<img src="{{ .Permalink }}">
+{{ end }}
 Posted by {{ .Site.Params.author }} on {{ partial "time.html" . }}
-<p>
+<br>
 {{ range $i, $e := .Params.tags -}}
-    {{- if $i -}}, {{ end -}}
-    <a href="{{ "/tags/" | relLangURL }}{{ . | urlize }}" rel="tag">#{{ $e }}</a>
+{{- if $i -}}, {{ end -}}
+<a href="{{ "/tags/" | relLangURL }}{{ . | urlize }}" rel="tag">#{{ $e }}</a>
 {{- end -}}
-</p>
