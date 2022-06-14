@@ -11,6 +11,7 @@
 				<h2><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
 				{{ partial "metadata.html" . }}
 			</header>
+			<br>
 			{{ partial "content.html" .Content | truncate 500 }} <a href="{{ .RelPermalink }}">Read more &raquo;</a>
 		</article>
 		<br>
