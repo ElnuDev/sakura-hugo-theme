@@ -6,6 +6,15 @@
 		<a href="{{ .RelPermalink }}" rel="next" style="float: right">Next post: <i>{{ .Title }}</i> &raquo</a>
 	{{ end }}
 	<br><br>
+	{{ if and (ne .Params.toc "false") (or (eq .Params.toc "true") (gt .WordCount 400)) }}
+	<aside>
+		<details>
+			<summary>Table of Contents</summary>
+			{{ .TableOfContents }}
+			<hr>
+		</details>
+	</aside>
+	{{ end }}
 	<article>
 		<header>
 			<h1>{{ .Title }}</h1>
