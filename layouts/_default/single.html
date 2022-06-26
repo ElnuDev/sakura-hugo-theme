@@ -1,9 +1,9 @@
 {{ define "main" }}
 	{{ with .Site.RegularPages.Prev . }}
-		<a href="{{ .RelPermalink }}" rel="prev">&laquo; Previous post: <i>{{ .Title }}</i></a>
+		<a href="{{ .RelPermalink }}" rel="prev">&laquo; Previous post: <i>{{ partial "content.html" .Title }}</i></a>
 	{{ end }}
 	{{ with .Site.RegularPages.Next . }}
-		<a href="{{ .RelPermalink }}" rel="next" style="float: right">Next post: <i>{{ .Title }}</i> &raquo</a>
+		<a href="{{ .RelPermalink }}" rel="next" style="float: right">Next post: <i>{{ partial "content.html" .Title }}</i> &raquo</a>
 	{{ end }}
 	<br><br>
 	{{ if and (ne .Params.toc "false") (or (eq .Params.toc "true") (gt .WordCount 400)) }}
