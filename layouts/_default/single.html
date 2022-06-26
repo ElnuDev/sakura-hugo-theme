@@ -17,7 +17,7 @@
 	{{ end }}
 	<article>
 		<header>
-			<h1>{{ .Title }}</h1>
+			<h1>{{ partial "content.html" .Title }}</h1>
 			{{ partial "metadata.html" . }}
 		</header>
 		<br>

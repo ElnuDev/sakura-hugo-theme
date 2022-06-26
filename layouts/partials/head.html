@@ -1,7 +1,7 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	{{ $title := cond .IsHome .Site.Title (printf "%s" .Title | printf "%s%s" (cond (and (eq .Kind "term") (eq .Data.Singular "tag")) "#" "") | printf "%s") }}
+	{{ $title := cond .IsHome .Site.Title (printf "%s" (partial "kanji.html" .Title) | printf "%s%s" (cond (and (eq .Kind "term") (eq .Data.Singular "tag")) "#" "") | printf "%s") }}
 	<meta property="og:site_name" content="{{ .Site.Title }}">
 	<meta property="og:title" content="{{ $title }}">
 	<meta name="twitter:title" content="{{ $title }}">
