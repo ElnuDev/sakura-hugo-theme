@@ -1,11 +1,12 @@
 {{ define "main" }}
-	{{ partial "pagination.html" . }}
-	{{ if eq .Paginator.PageNumber 1 }}
+	{{ $pagination := .Paginator }}
+	{{ partial "pagination.html" $pagination }}
+	{{ if eq $pagination.PageNumber 1 }}
 		<h1>{{ .Title }}</h1>
 		{{ partial "content.html" .Content }}
 		<hr>
 	{{ end }}
-	{{ range .Paginator.Pages }}
+	{{ range $pagination.Pages }}
 		<article>
 			<header>
 				<h2><a href="{{ .RelPermalink }}">{{ partial "content.html" .Title }}</a></h2>
@@ -16,5 +17,5 @@
 		</article>
 		<br>
 	{{ end }}
-	{{ partial "pagination.html" . }}
+	{{ partial "pagination.html" $pagination }}
 {{ end }}

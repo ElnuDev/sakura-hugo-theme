@@ -1,6 +1,7 @@
-{{ $pag := $.Paginator }}
+{{ $pag := . }}
+{{ $scratch := newScratch }}
 {{ if gt $pag.TotalPages 1 }}
-{{ $.Scratch.Set "dot_rendered" false }}
+{{ $scratch.Set "dot_rendered" false }}
 <nav aria-label="page navigation">
         {{ if and (ne $pag.PageNumber 1) (ne $pag.PageNumber 2) }}
         <a href="{{ $pag.First.URL }}" rel="first">« First</a>
@@ -12,10 +13,10 @@
             {{ if eq . $pag }}
 	    {{ .PageNumber }}
             {{ else if and (ge .PageNumber (sub $pag.PageNumber 2)) (le .PageNumber (add $pag.PageNumber 2)) }}
-            {{ $.Scratch.Set "dot_rendered" false }}
+            {{ $scratch.Set "dot_rendered" false }}
             <a href="{{ .URL }}">{{ .PageNumber }}</a>
-            {{ else if eq ($.Scratch.Get "dot_rendered") false }}
-            {{ $.Scratch.Set "dot_rendered" true }}
+            {{ else if eq ($scratch.Get "dot_rendered") false }}
+            {{ $scratch.Set "dot_rendered" true }}
             &hellip;
             {{ end }}
         {{ end }}
