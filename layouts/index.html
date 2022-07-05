@@ -1,5 +1,5 @@
 {{ define "main" }}
-	{{ $pagination := .Paginator }}
+	{{ $pagination := .Paginate (where .Site.RegularPages "Params.hidden" "!=" true) }}
 	{{ partial "pagination.html" $pagination }}
 	{{ if eq $pagination.PageNumber 1 }}
 		<h1>{{ .Title }}</h1>
