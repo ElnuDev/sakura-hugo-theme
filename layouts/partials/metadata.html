@@ -1,4 +1,4 @@
-{{ with .Resources.GetMatch "{cover.*}" }}
+{ with .Resources.GetMatch "{cover.svg,cover.*}" }}
 <img src="{{ .Permalink }}">
 {{ end }}
 Posted by {{ .Site.Params.author }} on {{ partial "time.html" . }}
