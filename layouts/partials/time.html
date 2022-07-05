@@ -1,1 +1,1 @@
-<time datetime="{{ partial "datestamp.html" .Date }}">{{ .Date.Format "2006/01/02 15:04" }}</time>
+<time datetime="{{ partial "datestamp.html" .Date }}">{{ .Date.Format "2006/01/02" }} {{ if ne (.Date.Format "15:04") "00:00" }}{{ .Date.Format "15:04" }}{{ end }}</time>
