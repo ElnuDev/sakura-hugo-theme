@@ -1,0 +1,13 @@
+<div class="stork-search">
+	<input data-stork="posts" placeholder="🔎 Search {{ .Site.Title }}...">
+</div>
+<div data-stork="posts-output"></div>
+<link rel="stylesheet" href="/stork/stork.css">
+<script src="/stork/stork.js"></script>
+<script>
+	stork.initialize("/stork/stork.wasm");
+	stork.register(
+		"posts",
+		"/home.st"
+	);
+</script>

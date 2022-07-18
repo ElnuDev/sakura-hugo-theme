@@ -15,12 +15,14 @@
 		</details>
 	</aside>
 	{{ end }}
-	<article>
-		<header>
-			<h1>{{ partial "content.html" .Title }}</h1>
-			{{ partial "metadata.html" . }}
-		</header>
-		<br>
-		{{ partial "content.html" .Content }}
-	</article>
+	<main>
+		<article>
+			<header>
+				<h1>{{ partial "content.html" .Title }}</h1>
+				{{ partial "metadata.html" . }}
+			</header>
+			<br>
+			<div id="main">{{ partial "content.html" .Content }}</div>
+		</article>
+	</main>
 {{ end }}
