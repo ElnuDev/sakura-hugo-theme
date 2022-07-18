@@ -52,6 +52,19 @@
 	{{ end }}
 	<link rel="stylesheet" href="/css/normalize.css">
 	<link rel="stylesheet" href="/css/sakura{{ if isset .Site.Params "theme" }}-{{ .Site.Params.Theme }}{{ end }}.css">
+	{{ if .Site.Params.Stork }}
+	<link rel="stylesheet" href="/stork/stork.css">
+	<script src="/stork/stork.js"></script>
+	<script>
+		stork.initialize("/stork/stork.wasm");
+		window.onload = () => {
+			stork.register(
+				"home",
+				"/home.st"
+			);
+		}
+	</script>
+	{{ end }}
 	{{ if isset .Site.Params "matomositeid" }}
 	<script>
 		var _paq = window._paq = window._paq || [];
@@ -65,7 +78,7 @@
 			var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
 			g.async=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
 		})();
-	</script>
+	</script>	
 	{{ end }}
 	<title>{{ $title }}{{ if not .IsHome }} - {{ .Site.Title }}{{ end }}</title>
 </head>

@@ -3,7 +3,10 @@
     {{- partial "head.html" . -}}
     <body>
 	{{ if .Site.Params.Stork }}
-	{{ partial "stork.html" . }}
+	<div class="stork-search">
+		<input data-stork="home" placeholder="🔎 Search {{ .Site.Title }}...">
+	</div>
+	<div data-stork="home-output"></div>
 	<br>
 	{{ end }}
         {{- partial "header.html" . -}}
