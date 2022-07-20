@@ -1,1 +1,10 @@
-{{ if and .IsHome (eq .Paginator.PageNumber 1) }}{{ .Site.Params.HomepageHeader | safeHTML }}{{ else }}<a href="/">&laquo; Home</a>{{ end }}
+{{- $pagination := "" }}
+{{- if .IsHome }}
+{{ $pagination = .Paginate (where .Site.RegularPages "Params.hidden" "!=" true) }}
+{{- end }}
+
+{{ if and .IsHome (eq $pagination.PageNumber 1) }}
+{{ .Site.Params.HomepageHeader | safeHTML }}
+{{ else }}
+<a href="/">&laquo; Home</a>
+{{ end }}
