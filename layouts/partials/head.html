@@ -50,13 +50,13 @@
 	{{ with .Site.Params.ThemeColor }}
 		<meta name="theme-color" content="{{ . }}">
 	{{ end }}
-	<link rel="stylesheet" href="/css/normalize.css">
-	<link rel="stylesheet" href="/css/sakura{{ if isset .Site.Params "theme" }}-{{ .Site.Params.Theme }}{{ end }}.css">
+	<link rel="stylesheet" href="/css/sakura/normalize.css">
+	<link rel="stylesheet" href="/css/sakura/sakura{{ if isset .Site.Params "theme" }}-{{ .Site.Params.Theme }}{{ end }}.css">
 	{{ if .Site.Params.Stork }}
-	<link rel="stylesheet" href="/stork/stork.css">
-	<script src="/stork/stork.js"></script>
+	<link rel="stylesheet" href="/css/stork.css">
+	<script src="/js/stork.js"></script>
 	<script>
-		stork.initialize("/stork/stork.wasm");
+		stork.initialize("/js/stork.wasm");
 		window.onload = () => {
 			stork.register(
 				"home",
