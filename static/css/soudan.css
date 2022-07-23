@@ -1,0 +1,25 @@
+.soudan-comment {
+	display: flex;
+	gap: 0.5em;
+}
+.soudan-comment > div {
+	width: 100%;
+}
+@keyframes soudan-highlighted {
+	from { background: rgba(255, 255, 0, 0.25); }
+	to { background: rgba(255, 255, 0, 0); }
+}
+.soudan-highlighted {
+	background: rgba(255, 255, 0, 0.25);
+	border-radius: 0.25em;
+	animation-name: soudan-highlighted;
+	animation-duration: 4s;
+	animation-delay: 2s;
+	animation-fill-mode: forwards;
+}
+.soudan-avatar {
+	border-radius: 100%;
+	width: 60px;
+	height: 60px;
+	background-color: gray;
+}

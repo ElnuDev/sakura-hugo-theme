@@ -25,4 +25,8 @@
 			<div id="main">{{ partial "content.html" .Content }}</div>
 		</article>
 	</main>
+	{{ if isset .Site.Params "soudanurl" }}
+	<div id="soudan"></div>
+	<script src="/js/soudan.js"></script>
+	{{ end }}
 {{ end }}
