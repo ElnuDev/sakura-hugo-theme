@@ -55,7 +55,7 @@
 	{{ end }}
 	<link rel="stylesheet" href="/css/sakura/normalize.css">
 	<link rel="stylesheet" href="/css/sakura/sakura{{ if isset .Site.Params "theme" }}-{{ .Site.Params.Theme }}{{ end }}.css">
-	{{ if .Site.Params.Soudan }}
+	{{ if isset .Site.Params "soudanurl" }}
 	<link rel="stylesheet" href="/css/soudan.css">
 	{{ end }}
 	{{ if .Site.Params.Stork }}
